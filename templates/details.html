@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <title>配置任务</title>
+		
+        <!-- All Plugins Css -->
+        <link href="http://127.0.0.1:5000/static/assets/css/plugins.css" rel="stylesheet">
+		 
+
+        <!-- Custom CSS -->
+        <link href="http://127.0.0.1:5000/static/assets/css/styles.css" rel="stylesheet">
+    </head>
+	
+    <body class="blue-skin">
+        <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <div class="Loader"></div>
+		
+        <!-- ============================================================== -->
+        <!-- Main wrapper - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <div id="main-wrapper">
+			<div class="header header-light">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<nav id="navigation" class="navigation navigation-landscape">
+								<div class="nav-header">
+									<a class="nav-brand" href="#">
+										<h1><a href='/'>主页</a></h1>
+									</a>
+									<div class="nav-toggle"></div>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="clearfix"></div>
+			<!-- ============================================================== -->
+			<!-- Top header  -->
+			<!-- ============================================================== -->
+			
+			<!-- ============================ Dashboard Header Start================================== -->
+			
+			<!-- ========================== Dashboard Header header ============================= -->
+			
+			<!-- ========================== SignUp Elements ============================= -->
+			<section class="gray-light">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-lg-11 col-md-11">
+							<div class="row no-gutters position-relative log_rads">
+								<div class="col-lg-7 col-md-7 position-static p-4 pl-md-0">
+									<div class="log_wraps">
+										<div class="log__heads">
+											<h4>任务ID：{{task[10]}}</h4>
+										</div>
+										
+										<div class="form-group">
+											<form class="center-in-center">
+												<p>数据源地址: <input type="text" value="{{task[0]}}" name="url" class="form-control"/></p>
+												<p>运动项目: <input type="text" value="{{task[1]}}" name="item" class="form-control"/></p>
+												爬取规则:
+												<select name="spidertype" class="form-control">
+													<option value="{{task[2]}}" hidden>{{task[2]}}</option> 
+													<option value ="news">新闻爬取</option>
+													<option value ="video">视频爬取</option>
+													<option value="player1">运动员信息爬取类型1</option>
+													<option value="player2">运动员信息爬取类型2</option>
+													<option value="player3">运动员信息爬取类型3</option>
+													<option value="game1">比赛信息爬取</option>
+												</select>
+												<p>任务结束时间: <input type="text" value="{{task[4]}}" name="endtime" class="form-control"/></p>
+												<p>下次任务执行时间: <input type="text" value="{{task[5]}}" name="runtime" class="form-control"/></p>
+												<p>任务执行周期(小时): <input type="text" value="{{task[7]}}" name="cycle" class="form-control"/></p>
+												<p>预计爬取深度: <input type="text" value="{{task[8]}}" name="depth" class="form-control"/></p>
+												<p>任务暂停状态<select name="pstate" class="form-control">
+													<option value="{{task[9]}}" hidden>{{task[9]}}</option> 
+													<option value="suspend">暂停</option>
+													<option value="run">开始</option>
+												</select></p>
+												<input type="submit" value="修改任务" />
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- ========================== Login Elements ============================= -->
+		</div>
+		<!-- ============================================================== -->
+		<!-- End Wrapper -->
+		<!-- ============================================================== -->
+
+		<!-- ============================================================== -->
+		<!-- All Jquery -->
+		<!-- ============================================================== -->
+		<script src="http://127.0.0.1:5000/static/assets/js/jquery.min.js"></script>
+		<script src="http://127.0.0.1:5000/static/assets/js/popper.min.js"></script>
+		<script src="http://127.0.0.1:5000/static/assets/js/bootstrap.min.js"></script>
+		<script src="http://127.0.0.1:5000/static/assets/js/select2.min.js"></script>
+		<script src="http://127.0.0.1:5000/static/assets/js/owl.carousel.min.js"></script>
+		<script src="http://127.0.0.1:5000/static/assets/js/ion.rangeSlider.min.js"></script>
+		<script src="http://127.0.0.1:5000/static/assets/js/counterup.min.js"></script>
+		<script src="http://127.0.0.1:5000/static/assets/js/custom.js"></script>
+		<!-- ============================================================== -->
+		<!-- This page plugins -->
+		<!-- ============================================================== -->
+		
+		<script>
+			function openRightMenu() {
+				document.getElementById("rightMenu").style.display = "block";
+			}
+			function closeRightMenu() {
+				document.getElementById("rightMenu").style.display = "none";
+			}
+		</script>
+		
+	</body>
+</html>
