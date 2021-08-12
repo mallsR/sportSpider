@@ -5,6 +5,8 @@ import datetime
 import os
 import codecs
 
+
+# 爬取运动员的信息，应该不需要三个不同的爬虫，需要考虑合并为一个
 def player1Spider(task, news_num, video_num, player_num, game_num):
     play_list = []
     level_list = []
@@ -69,10 +71,11 @@ def player2Spider(task, news_num, video_num, player_num, game_num):
 </dd>''')
     findbirthday = re.compile(r'''(\d*)年(.*?)出生''')
     findteam = re.compile(r'''所属运动队</dt>''')
-    findlevel = re.compile(r'''专业特点</dt>
-(.*?)>
-(.*?)
-</dd>''')
+#     findlevel = re.compile(r'''专业特点</dt>
+# (.*?)>
+# (.*?)
+# </dd>''')
+    findlevel = re.compile(r'''(\d*)公斤级''')
     findbestre = re.compile(r'''(\d*)公斤''')
     soup = getsoup(task)
     for item in soup.find_all('body'):
@@ -96,7 +99,7 @@ def player2Spider(task, news_num, video_num, player_num, game_num):
                     a = int(k)
             except:
                 pass
-        bestre = "总成绩%d公斤"%a
+        bestre = "总成绩%d公斤" % a
         play_list.append(bestre)
     saveText(play_list)              #保存到本地
     player_num += 1
@@ -147,7 +150,7 @@ def player3Spider(task, news_num, video_num, player_num, game_num):
                     a = int(k)
             except:
                 pass
-        bestre = "总成绩%d公斤"%a
+        bestre = "总成绩%d公斤" % a
         play_list.append(bestre)
     saveText(play_list)              #保存到本地
     player_num += 1
@@ -164,13 +167,14 @@ def getsoup(task):
 def saveText(play_list):
     file_name = play_list[0]
     path = getpath()
-    with codecs.open('%s\\%s.txt'%(path,file_name), mode='a', encoding='utf-8') as file_txt:
+    with codecs.open('%s/%s.txt'%(path,file_name), mode='a', encoding='utf-8') as file_txt:
         for text in play_list:
             file_txt.write(text+'\n')
 
 def getpath():
     today_date = str(datetime.datetime.now().strftime('%Y-%m-%d %H'))
-    path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult\\player'%today_date
+    # path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult\\player'%today_date
+    path = ('/Users/xiaor/Project/Laboratory_project/result/%sresult/player' % today_date).replace(' ', '_')
     isExists=os.path.exists(path)
     if not isExists:
         os.makedirs(path)

@@ -3,24 +3,35 @@ import os
 import codecs
 
 def generatePage(result_path, Spage_time, news_num, video_num, player_num, game_num):
-    path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult'%result_path
-    news_list = os.listdir(path+'\\news')
-    video_list = os.listdir(path+'\\video')
-    player_list = os.listdir(path+'\\player')
-    game_list = os.listdir(path+'\\game')
+    # path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult'%result_path
+    # news_list = os.listdir(path+'\\news')
+    # video_list = os.listdir(path+'\\video')
+    # player_list = os.listdir(path+'\\player')
+    # game_list = os.listdir(path+'\\game')
+    # 生成文件的路径，需要更改
+    # 由于mac命令行会在空格前增加转义字符，需要对字符串进行处理
+    path = ('/Users/xiaor/Project/Laboratory_project/result/%sresult' % result_path).replace(' ', '_')
+    news_list = os.listdir(path + '/news')
+    video_list = os.listdir(path + '/video')
+    player_list = os.listdir(path + '/player')
+    game_list = os.listdir(path + '/game')
     news_text_list = []
     player_text_list = []
     for news in news_list:
-        with codecs.open('%s'%path+'\\news\\'+'%s'%news, mode='r', encoding='utf-8') as file_txt:
+        # with codecs.open('%s'%path+'\\news\\'+'%s'%news, mode='r', encoding='utf-8') as file_txt:
+        with codecs.open('%s' % path + '/news/' + '%s' % news, mode='r', encoding='utf-8') as file_txt:
             lines = file_txt.readlines()
             news_text_list.append(lines)    #这个数组每一个元素代表一篇文章，每一篇文章中每一个元素代表原文中的一行
     for player in player_list:
-        with codecs.open('%s'%path+'\\player\\'+'%s'%player, mode='r', encoding='utf-8') as file_txt:
+        # with codecs.open('%s'%path+'\\player\\'+'%s'%player, mode='r', encoding='utf-8') as file_txt:
+        with codecs.open('%s' % path + '/player/' + '%s' % player, mode='r', encoding='utf-8') as file_txt:
             lines = file_txt.readlines()
             player_text_list.append(lines)    #这个数组每一个元素代表一个运动员的信息，每一个运动员信息中的买一个元素代表运动员信息的一项
     task_str = '举重竞技系统 %s任务包含 %d 条运动员信息，%d 条赛事信息，%d 条视频信息和%d 条新闻信息'%(Spage_time, player_num, game_num, video_num, news_num)
     player_str = ''''''
     for player_text in player_text_list:
+        print("player_text")
+        print(player_text)
         player_str = player_str +'\n' + r'''<tr>
 <td>%s</td>
 <td>%s</td>
@@ -235,7 +246,8 @@ def generatePage(result_path, Spage_time, news_num, video_num, player_num, game_
 		<script src="../assets/js/custom.js"></script>
 	</body>
 </html>'''%(task_str, player_str, game_str, len(video_list) + 1, video_str, news_str, Spage_time)
-    with codecs.open('%s\\result.html'%path, mode='a', encoding='utf-8') as file_txt:
+    # with codecs.open('%s\\result.html'%path, mode='a', encoding='utf-8') as file_txt:
+    with codecs.open('%s/result.html' % path, mode='a', encoding='utf-8') as file_txt:
         file_txt.write(html_str)
 
 if __name__ == "__main__":

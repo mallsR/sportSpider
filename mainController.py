@@ -36,7 +36,8 @@ def main():
     task_ID = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
     result_path = datetime.datetime.now().strftime('%Y-%m-%d %H')
     S_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    xml_name = 'task.xml'
+    # 需要使用绝对路径
+    xml_name = "/Users/xiaor/Project/Laboratory_project/program/task.xml"
     # 从xml中获取爬取任务
     task_list = XMLparsing(xml_name) 
     # 对任务分类

@@ -38,13 +38,13 @@ def saveSrc(srclist):
     file_name = str(uuid.uuid1())
     path = getpath()
     requesti = urllib.request.Request(imgsrc,headers=head)
-    f = open("%s\\%s.jpg"%(path, file_name),'wb')
+    f = open("%s/%s.jpg"%(path, file_name),'wb')
     f.write(urllib.request.urlopen(requesti).read())
     f.close()
 
 def getpath():
     today_date = str(datetime.datetime.now().strftime('%Y-%m-%d %H'))
-    path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult\\game'%today_date
+    path = ('/Users/xiaor/Project/Laboratory_project/result/%sresult/game'%today_date).replace(' ', '_')
     isExists=os.path.exists(path)
     if not isExists:
         os.makedirs(path)

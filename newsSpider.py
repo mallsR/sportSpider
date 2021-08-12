@@ -44,7 +44,7 @@ def saveText(textlist):
     if textlist[1] != '':
         file_name = uuid.uuid1()
         path = getpath()
-        with codecs.open('%s\\%s.txt'%(path,file_name), mode='a', encoding='utf-8') as file_txt:
+        with codecs.open('%s/%s.txt'%(path,file_name), mode='a', encoding='utf-8') as file_txt:
             file_txt.write(textlist[0]+'\n')
             file_txt.write(textlist[1])
     else:
@@ -52,7 +52,7 @@ def saveText(textlist):
 
 def getpath():
     today_date = str(datetime.datetime.now().strftime('%Y-%m-%d %H'))
-    path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult\\news'%today_date
+    path = ('/Users/xiaor/Project/Laboratory_project/result/%sresult/news'%today_date).replace(' ', '_')
     isExists=os.path.exists(path)
     if not isExists:
         os.makedirs(path)

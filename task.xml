@@ -3,7 +3,7 @@
    <item>&#20030;&#37325;</item>
    <spidertype>news</spidertype>
    <starttime>2021051818</starttime>
-   <endtime>2022051919</endtime>
+   <endtime>2022081919</endtime>
    <runtime>2021060105</runtime>
    <state>waiting</state>
    <cycle>24</cycle>
@@ -16,7 +16,7 @@
    <spidertype>other</spidertype>
    <starttime>2021051719</starttime>
    <endtime>2021051719</endtime>
-   <runtime>2021051719</runtime>
+   <runtime>2021081119</runtime>
    <state>abandoned</state>
    <cycle>24</cycle>
    <depth>1</depth>
@@ -28,7 +28,7 @@
    <spidertype>video</spidertype>
    <starttime>2021051819</starttime>
    <endtime>2022052000</endtime>
-   <runtime>2021060105</runtime>
+   <runtime>2021081317</runtime>
    <state>waiting</state>
    <cycle>24</cycle>
    <depth>1</depth>
@@ -40,7 +40,7 @@
    <spidertype>news</spidertype>
    <starttime>2021051819</starttime>
    <endtime>2022051819</endtime>
-   <runtime>2021060105</runtime>
+   <runtime>2021081317</runtime>
    <state>waiting</state>
    <cycle>24</cycle>
    <depth>2</depth>
@@ -52,7 +52,7 @@
    <spidertype>player1</spidertype>
    <starttime>2021051819</starttime>
    <endtime>2022051819</endtime>
-   <runtime>2021060105</runtime>
+   <runtime>2021081317</runtime>
    <state>waiting</state>
    <cycle>24</cycle>
    <depth>1</depth>
@@ -64,10 +64,10 @@
    <spidertype>player2</spidertype>
    <starttime>2021051819</starttime>
    <endtime>2022051819</endtime>
-   <runtime>2021060105</runtime>
+   <runtime>2021081317</runtime>
    <state>waiting</state>
-   <cycle>24</cycle>
    <depth>1</depth>
+   <cycle>24</cycle>
    <pstate>run</pstate>
    <uid>5</uid>
 </url>
@@ -76,7 +76,7 @@
    <spidertype>player3</spidertype>
    <starttime>2021051819</starttime>
    <endtime>2022051819</endtime>
-   <runtime>2021060105</runtime>
+   <runtime>2021081317</runtime>
    <state>waiting</state>
    <cycle>24</cycle>
    <depth>1</depth>
@@ -88,7 +88,7 @@
    <spidertype>game1</spidertype>
    <starttime>2021051819</starttime>
    <endtime>2022051819</endtime>
-   <runtime>2021060105</runtime>
+   <runtime>2021081317</runtime>
    <state>waiting</state>
    <cycle>24</cycle>
    <depth>1</depth>

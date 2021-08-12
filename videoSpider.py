@@ -35,7 +35,8 @@ def videoSpider(task, news_num, video_num, player_num, game_num):
 
 def getpath():
     today_date = str(datetime.datetime.now().strftime('%Y-%m-%d %H'))
-    path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult\\video'%today_date
+    # path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult\\video'%today_date
+    path = ('/Users/xiaor/Project/Laboratory_project/result/%sresult/video' % today_date).replace(' ','_')
     isExists=os.path.exists(path)
     if not isExists:
         os.makedirs(path)
