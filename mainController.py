@@ -37,6 +37,7 @@ def main():
     result_path = datetime.datetime.now().strftime('%Y-%m-%d %H')
     S_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     xml_name = 'task.xml'
+    # 从xml中获取爬取任务
     task_list = XMLparsing(xml_name) 
     # 对任务分类
     updatetask_list,overduetask_list = selectURL(task_list)

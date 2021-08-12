@@ -12,7 +12,9 @@ def generateLog(task_ID, S_time, E_time, task_list, news_num, video_num, player_
     </div>
 </section>"""%(task_ID, S_time, E_time, news_num, video_num, player_num, game_num)
 
-    f = open('C:\\Users\\gao\\Desktop\\bysj\\program\\templates\\journal.html','a')
+    # 此处修改为保存日志的的位置
+    # f = open('C:\\Users\\gao\\Desktop\\bysj\\program\\templates\\journal.html','a')
+    f = open('/Users/xiaor/Project/Laboratory_project/program/templates/journal.html', 'a')
     f.write(w_str)
     f.close()
     

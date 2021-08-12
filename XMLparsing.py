@@ -10,6 +10,7 @@ def XMLparsing(basexml):
     # 得到所有的url
     tasklists = collection.getElementsByTagName("url")
     for task in tasklists:
+        # 整理所有信息为列表
         urllist = [] 
         url = task.getAttribute('title')
         urllist.append(url)
@@ -34,4 +35,5 @@ def XMLparsing(basexml):
         uid = task.getElementsByTagName('uid')[0].childNodes[0].data
         urllist.append(uid)
         tasklist.append(urllist)
+    # 返回的tasklist为一个二级列表
     return tasklist
