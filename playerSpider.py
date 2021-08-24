@@ -6,6 +6,80 @@ import os
 import codecs
 
 
+# 合并后的运动员信息爬取函数
+def playerSpider(task, news_num, video_num, player_num, game_num):
+    play_list = []
+    level_list = []
+    findName = re.compile(r'<dt class="basicInfo-item name">中文名</dt>\s<dd class="basicInfo-item value">\s(.*?)\s</dd>', re.S)
+    findBirthday = re.compile(r'<dt class="basicInfo-item name">出生日期</dt>\s<dd class="basicInfo-item value">\s(.*?)\s</dd>', re.S)
+    findBirPlace = re.compile(r'<dt class="basicInfo-item name">出生地</dt>\s<dd class="basicInfo-item value">\s(.*?)\s</dd>', re.S)
+    findItem = re.compile(r'<dt class="basicInfo-item name">运动项目</dt>\s<dd class="basicInfo-item value">\s(.*?)\s</dd>', re.S)
+    findTeam = re.compile(r'<dt class="basicInfo-item name">所属运动队</dt>\s<dd class="basicInfo-item value">\s(.*?)\s</dd>', re.S)
+    # 找到主要信息
+    findTotal = re.compile(r'<dt class="basicInfo-item name">主要奖项</dt>\s<dd class="basicInfo-item value">\s.*?\s</dd>', re.S)
+    # 找主要信息中的获奖信息
+    # findPrice = re.compile(r'("([^a-z]*?)"|)', re.S)
+
+    findLevel = re.compile(r'(\d*)公斤级', re.S)
+    findBestRe = re.compile(r'(\d*)公斤', re.S)
+    soup = getsoup(task)
+    for item in soup.find_all('body'):
+        item = str(item)
+        name = re.findall(findName, item)
+        if name != []:
+            play_list.append(name[0])
+        else:
+            play_list.append("")
+
+        birthday = re.findall(findBirthday, item)
+        if birthday != []:
+            play_list.append(birthday[0])
+        else:
+            play_list.append("")
+
+        place = re.findall(findBirPlace, item)
+        if place != []:
+            play_list.append(place[0])
+        else:
+            play_list.append("")
+
+        type = re.findall(findItem, item)
+        if type != []:
+            play_list.append(type[0])
+        else:
+            play_list.append("")
+
+        team = re.findall(findTeam, item)
+        if team != []:
+            play_list.append(team[0])
+        else:
+            play_list.append("")
+
+        # 关于举重的
+        # levels = re.findall(findLevel, item)
+        # print("levels")
+        # print(levels)
+        # levels = list(set(levels))
+        # level = ''
+        # for num in levels:
+        #     level = level + ' %d公斤级' % int(num)
+        # play_list.append(level)
+        #
+        # bestRes = re.findall(findBestRe, item)
+        # if bestRes != []:
+        #     bestRes = list(set(bestRes))
+        #     bestRe = "总成绩%d公斤" % int(bestRes[len(bestRes) - 1])
+        #     play_list.append(bestRe)
+        # else:
+        #     play_list.append("")
+
+    print("play_list")
+    print(play_list)
+    saveText(play_list)  # 保存到本地
+    player_num += 1
+    return news_num, video_num, player_num, game_num
+
+
 # 爬取运动员的信息，应该不需要三个不同的爬虫，需要考虑合并为一个
 def player1Spider(task, news_num, video_num, player_num, game_num):
     play_list = []
@@ -165,16 +239,24 @@ def getsoup(task):
     return soup
 
 def saveText(play_list):
+    # 获取运动类型
+    typeName = play_list[3]
+    # 获取运动员姓名
     file_name = play_list[0]
-    path = getpath()
-    with codecs.open('%s/%s.txt'%(path,file_name), mode='a', encoding='utf-8') as file_txt:
+    path = getpath(play_list)
+    with codecs.open('%s/%s.txt'%(path, file_name), mode='a', encoding='utf-8') as file_txt:
         for text in play_list:
             file_txt.write(text+'\n')
 
-def getpath():
+def getpath(play_list):
+    # 获取运动类型
+    typeName = play_list[3]
+    # 获取运动员姓名
+    file_name = play_list[0]
     today_date = str(datetime.datetime.now().strftime('%Y-%m-%d %H'))
     # path = 'C:\\Users\\gao\\Desktop\\bysj\\result\\%sresult\\player'%today_date
-    path = ('/Users/xiaor/Project/Laboratory_project/result/%sresult/player' % today_date).replace(' ', '_')
+    path = ('/Users/xiaor/Project/Laboratory_project/result/%sresult/%s/%s' % (today_date, typeName, file_name)).replace(' ', '_')
+    print("path = ", path)
     isExists=os.path.exists(path)
     if not isExists:
         os.makedirs(path)

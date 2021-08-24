@@ -5,7 +5,7 @@ from addtask import addtask
 from changetask import changetask
 from XMLparsing import XMLparsing
 
-_basexml = "task.xml"
+_basexml = "/Users/xiaor/Project/Laboratory_project/program/task.xml"
 
 class Config(object):  # 创建配置，用类
     # 任务列表
@@ -14,6 +14,7 @@ class Config(object):  # 创建配置，用类
             'id': 'job1',
             'func': 'mainController:main',
             'args': (),
+            # 相对方式，每天5:41:50进行爬取
             'trigger': 'cron',
             'day': '*',
             'hour': '5',
@@ -36,6 +37,8 @@ def index():
 def index1():
     _url = request.args.get("url")
     _item = request.args.get("item")
+    print("_item")
+    print(_item)
     _spidertype = request.args.get("spidertype")
     _starttime = request.args.get("starttime")
     _endtime = request.args.get("endtime")
@@ -52,7 +55,10 @@ def index2():
 
 @app.route("/currenttask",methods=["POST","GET"])
 def index3():
-    _list = XMLparsing(_basexml)
+    # 相对路径找不到，需要改为绝对路径
+    # _list = XMLparsing(_basexml)
+    filePath = "/Users/xiaor/Project/Laboratory_project/program/" + _basexml
+    _list = XMLparsing(filePath)
     return render_template("currenttask.html",tasklist = _list)
 
 @app.route("/details/<uid>",methods=["POST","GET"])
@@ -76,7 +82,9 @@ def index4(uid):
     return render_template("details.html",task = _task[0])
  
 if __name__ == '__main__':
+    # 定时任务框架
     scheduler=APScheduler()
+
     scheduler.init_app(app)
     scheduler.start()
     app.run(debug=False)

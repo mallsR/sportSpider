@@ -11,8 +11,10 @@ def XMLparsing(basexml):
     tasklists = collection.getElementsByTagName("url")
     for task in tasklists:
         # 整理所有信息为列表
-        urllist = [] 
-        url = task.getAttribute('title')
+        urllist = []
+        # 这里处理xml文件中的转义字符
+        url = task.getAttribute('title').replace('&amp;', '&')
+        print("url = ", url)
         urllist.append(url)
         item = task.getElementsByTagName('item')[0].childNodes[0].data
         urllist.append(item)

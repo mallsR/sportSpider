@@ -1,6 +1,6 @@
 from XMLparsing import XMLparsing
 from selectURL import selectURL
-from playerSpider import player1Spider,player2Spider,player3Spider
+from playerSpider import player1Spider,player2Spider,player3Spider,playerSpider
 from gameSpider import game1Spider
 from videoSpider import videoSpider
 from newsSpider import newsSpider
@@ -12,9 +12,9 @@ import datetime
 import time
 
 spidertypedict = {
-    'player1':player1Spider,
-    'player2':player2Spider,
-    'player3':player3Spider,
+    'player1':playerSpider,
+    'player2':playerSpider,
+    'player3':playerSpider,
     'game1':game1Spider,
     'video':videoSpider,
     'news':newsSpider

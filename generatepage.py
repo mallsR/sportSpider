@@ -11,10 +11,31 @@ def generatePage(result_path, Spage_time, news_num, video_num, player_num, game_
     # 生成文件的路径，需要更改
     # 由于mac命令行会在空格前增加转义字符，需要对字符串进行处理
     path = ('/Users/xiaor/Project/Laboratory_project/result/%sresult' % result_path).replace(' ', '_')
-    news_list = os.listdir(path + '/news')
-    video_list = os.listdir(path + '/video')
-    player_list = os.listdir(path + '/player')
-    game_list = os.listdir(path + '/game')
+    # 判断news文件夹是否存在
+    isExists = os.path.exists(path + '/news')
+    if not isExists:
+        news_list = []
+    else:
+        news_list = os.listdir(path + '/news')
+
+    isExists = os.path.exists(path + '/video')
+    if not isExists:
+        video_list = []
+    else:
+        video_list = os.listdir(path + '/video')
+
+    isExists = os.path.exists(path + '/player')
+    if not isExists:
+        player_list = []
+    else:
+        player_list = os.listdir(path + '/player')
+
+    isExists = os.path.exists(path + '/game')
+    if not isExists:
+        game_list = []
+    else:
+        game_list = os.listdir(path + '/game')
+
     news_text_list = []
     player_text_list = []
     for news in news_list:
