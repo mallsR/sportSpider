@@ -23,6 +23,5 @@
    <pstate>run</pstate>
    <uid>1</uid>
 </url>
-<url title="https://search.cctv.com/search.php?qtext=&#29579;&#28085;&amp;type=web"><item>&#36339;&#27700;</item><spidertype>news</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082510</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>b7a71c3e-0477-11ec-bfca-acde48001122</uid></url>
-<url title="https://baike.baidu.com/item/&#29579;&#28085;/45350?fr=aladdin"><item>&#36339;&#27700;</item><spidertype>player1</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082510</runtime><state>waiting</state><cycle>24</cycle><depth>1</depth><pstate>run</pstate><uid>1e1ef6da-047d-11ec-947d-acde48001122</uid></url>
-</collection>
+<url title="https://baike.baidu.com/item/&#29579;&#28085;/45350?fr=aladdin"><item>&#36339;&#27700;</item><spidertype>player1</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082808</runtime><state>waiting</state><cycle>24</cycle><depth>1</depth><pstate>run</pstate><uid>1e1ef6da-047d-11ec-947d-acde48001122</uid></url>
+<url title="https://www.fina.org/competitions?group=FINA&amp;year=2021&amp;month=latest&amp;disciplines=DV"><item>&#36339;&#27700;</item><spidertype>game1</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082808</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>140f11f8-048b-11ec-947d-acde48001122</uid></url></collection>

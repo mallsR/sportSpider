@@ -17,6 +17,7 @@
 2021/08/17-18   确定数据源
 2021/08/19      完成video的爬取
 2021/08/24      基本完成newsSpider及初版playerSpider
+2021/08/26      基本完成gameSpider的跳水比赛部分
 
 
 
@@ -37,8 +38,9 @@ result:
 四、遇到的问题及解决方案：
 1、  2021/08/19      python修改task.xml文件时，中文总是出现问题        通过 basetask.write(_basexml, encoding = 'utf-8')修改写入的编码方式
 2、  2021/08/19      xml文件转义字符                                 在读取url时，进行替换
-3、  2021/08/20-21      央视新闻的链接为ajax动态加载，无法简单通过get请求获取数据      抓包发现，其数据是通过json保存的，需要查看浏览器的Query String Parameters,构造资源所在的新url进行访问。
-4、
+3、  2021/08/20-21   央视新闻的链接为ajax动态加载，无法简单通过get请求获取数据      抓包发现，其数据是通过json保存的，需要查看浏览器的Query String Parameters,构造资源所在的新url进行访问。
+4、  2021/08/25      世界泳联的网站比赛信息三层动态加载                     其比赛的url链接为特殊头+id+titleUrlSegment构成
+5、  2021/08/26      世界泳联跳水比赛中有双人比赛                       需要进行额外的判断
 
 
 
@@ -115,3 +117,4 @@ result:
    <pstate>run</pstate>
    <uid>2</uid>
 </url>
+<url title="https://search.cctv.com/search.php?qtext=&#29579;&#28085;&amp;type=web"><item>&#36339;&#27700;</item><spidertype>news</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082710</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>b7a71c3e-0477-11ec-bfca-acde48001122</uid></url>
