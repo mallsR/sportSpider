@@ -18,7 +18,10 @@
 2021/08/19      完成video的爬取
 2021/08/24      基本完成newsSpider及初版playerSpider
 2021/08/26      基本完成gameSpider的跳水比赛部分
-
+2021/09/04      基本完成gameSpider的举重比赛部分
+2021/09/04      基本完成gameSpider的跆拳道比赛部分
+2021/09/06      基本完成gameSpider的竞走比赛部分
+2021/09/08      基本完成gameSpider的竞走比赛部分
 
 
 三、结果形式：
@@ -40,8 +43,11 @@ result:
 2、  2021/08/19      xml文件转义字符                                 在读取url时，进行替换
 3、  2021/08/20-21   央视新闻的链接为ajax动态加载，无法简单通过get请求获取数据      抓包发现，其数据是通过json保存的，需要查看浏览器的Query String Parameters,构造资源所在的新url进行访问。
 4、  2021/08/25      世界泳联的网站比赛信息三层动态加载                     其比赛的url链接为特殊头+id+titleUrlSegment构成
-5、  2021/08/26      世界泳联跳水比赛中有双人比赛                       需要进行额外的判断
-
+5、  2021/08/26      世界泳联跳水比赛中有双人比赛                       根据所获得json数据结构进行额外的判断
+6、  2021/08/27      访问世界田联网站，返回Reponse400
+7、  2021/08/29      世界跆拳道比赛的网站，比赛结果直接通过PDF方式呈现      需要通过页面的信息找到文件链接，直接访问文件。
+8、  2021/09/04      世界举重联合会爬取，对id的定位方式为                  find_all(id = '')
+9、  2021/09/06      世界田联竞走爬取，读取表格并保存                      read_html
 
 
 五、信息暂存：
@@ -117,4 +123,13 @@ result:
    <pstate>run</pstate>
    <uid>2</uid>
 </url>
-<url title="https://search.cctv.com/search.php?qtext=&#29579;&#28085;&amp;type=web"><item>&#36339;&#27700;</item><spidertype>news</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082710</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>b7a71c3e-0477-11ec-bfca-acde48001122</uid></url>
+<url title="https://baike.baidu.com/item/王涵/45350?fr=aladdin"><item>跳水</item><spidertype>player1</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082919</runtime><state>waiting</state><cycle>24</cycle><depth>1</depth><pstate>run</pstate><uid>1e1ef6da-047d-11ec-947d-acde48001122</uid></url>
+<url title="https://search.cctv.com/search.php?qtext=王涵&amp;type=web"><item>跳水</item><spidertype>news</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082919</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>b7a71c3e-0477-11ec-bfca-acde48001122</uid></url>
+<url title="https://www.fina.org/competitions?group=FINA&amp;year=2021&amp;month=latest&amp;disciplines=DV"><item>跳水</item><spidertype>game1</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082919</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>140f11f8-048b-11ec-947d-acde48001122</uid></url>
+<url title="https://worldathletics.org/competition/calendar-results?hideCompetitionsWithNoResults=true"><item>田径</item><spidertype>game1</spidertype><starttime>2021081916</starttime><endtime>2022081816</endtime><runtime>2021082919</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>0eb718a6-06dc-11ec-9b58-acde48001122</uid></url>
+<url title="https://www.fina.org/competitions?group=FINA&amp;year=2021&amp;month=latest&amp;disciplines=DV"><item>跳水</item><spidertype>game1</spidertype><starttime>2021072009</starttime><endtime>2022072009</endtime><runtime>2021082808</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>140f11f8-048b-11ec-947d-acde48001122</uid></url>
+<url title="https://iwf.sport/results/results-by-events/"><item>举重</item><spidertype>game1</spidertype><starttime>2021081916</starttime><endtime>2022081816</endtime><runtime>2021090115</runtime><state>running</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>79f13bf2-0bbd-11ec-a97e-acde48001122</uid></url>
+<url title="http://www.worldtaekwondo.org/competition/list.html?mcd=A01&amp;sc=re"><item>跆拳道</item><spidertype>game1</spidertype><starttime>2021090109</starttime><endtime>2022090109</endtime><runtime>2021090519</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>598a2b7c-0d56-11ec-a9c4-acde48001122</uid></url>
+<url title="https://www.worldathletics.org/competition/calendar-results?hideCompetitionsWithNoResults=true"><item>竞走</item><spidertype>game1</spidertype><starttime>2021090419</starttime><endtime>2022090419</endtime><runtime>2021090714</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>bda69afa-0d74-11ec-9a0b-acde48001122</uid></url>
+<url title="https://www.worldathletics.org/competition/calendar-results?hideCompetitionsWithNoResults=true"><item>田径</item><spidertype>game1</spidertype><starttime>2021090419</starttime><endtime>2022090419</endtime><runtime>2021090415</runtime><state>running</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>7bda7f74-0ee1-11ec-b69a-acde48001122</uid></url>
+<url title="https://www.worldathletics.org/competition/calendar-results?hideCompetitionsWithNoResults=true"><item>&#36339;&#36828;</item><spidertype>game1</spidertype><starttime>2021090419</starttime><endtime>2022090419</endtime><runtime>2021090710</runtime><state>waiting</state><cycle>24</cycle><depth>2</depth><pstate>run</pstate><uid>fc23ae60-0ee3-11ec-9b29-acde48001122</uid></url>

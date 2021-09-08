@@ -1,3 +1,4 @@
+# zhongwen
 def generateLog(task_ID, S_time, E_time, task_list, news_num, video_num, player_num, game_num):
     w_str = """<section class="gray-light">
     <div class="container">
